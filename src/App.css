@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+.high {
+  color: rgb(80, 207, 80);
+}
+.medium {
+  color: yellow;
+}
+.low {
+  color: rgb(224, 55, 55);
+}

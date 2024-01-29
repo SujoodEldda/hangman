@@ -1,7 +1,14 @@
-import React from 'react'
+import React from "react";
 
-export default function Letter({letter}) {
+export default function Letter({ letter, style, letterIsSelected }) {
   return (
-    <span onClick={()=>console.log(letter)}>{letter}</span>
-  )
+    <>
+      <span
+        onClick={() => letterIsSelected(letter.toUpperCase())}
+        style={style}
+      >
+        {letter}{" "}
+      </span>
+    </>
+  );
 }

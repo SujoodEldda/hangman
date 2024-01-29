@@ -1,12 +1,29 @@
-import React from 'react'
-import Letter from './Letter';
+import React from "react";
+import Letter from "./Letter";
 
-export default function Letters() {
-    const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+export default function Letters({ letterStatus, letterIsSelected }) {
+  const crossedOutStyle = {
+    textDecoration: "line-through",
+  };
+  const letterSelected = (letter) => {
+    if (letterStatus[letter] == false) {
+      return false;
+    } else {
+      return true;
+    }
+  };
   return (
     <>
-    <div>Available letters</div>
-    {letters.map((letter)=><Letter letter={letter}/>)}
+      <div>Available letters</div>
+      {Object.keys(letterStatus).map((letter) => (
+        <Letter
+          letter={letter}
+          style={
+            letterSelected(letter.toLocaleUpperCase()) ? crossedOutStyle : {}
+          }
+          letterIsSelected={letterIsSelected}
+        />
+      ))}
     </>
-  )
+  );
 }
